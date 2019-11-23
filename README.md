@@ -20,6 +20,8 @@ python manage.py runserver 0.0.0.0:80
 ## linux 使用
 ``` bash
 [上传]curl http://localhost/postfile/ -F "file=@/path" 
+[上传]curl localhost/postfile/ -F "file=@/root/demo"
+[上传多个]curl localhost/postfile/ -F "file=@filename1" -F "file=@filename2"
 [浏览] curl http://localhost/public/
 [下载] wget http://localhost/public/filename
 ```
