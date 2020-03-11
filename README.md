@@ -25,5 +25,6 @@ python manage.py runserver 0.0.0.0:80
 [浏览] curl http://localhost/public/
 [下载] wget http://localhost/public/filename
 ```
->path是绝对路径
+>path是绝对路径，也可以用当前路径
 filename填你要下载的文件名
+有一种no files for upload!叫做文件正在写入
