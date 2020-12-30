@@ -12,11 +12,13 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+# config path
 RUN_DIR = os.getcwd()
-
+MEDIA_ROOT = RUN_DIR #文件路径不是绝对路径是项目路径
+MEDIA_URL = '/public/'
+MEDIA_LIMIT_SIZE = 2*1024**3 #单位字节 三次方G
+MEDIA_SIZE=None
+LOGNAME = "server.log"
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
@@ -25,99 +27,22 @@ RUN_DIR = os.getcwd()
 SECRET_KEY = 'w38djes5_ra2kjne0a7gt18867#ag!x#_3$&tnoswyglj5_@k%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
-
-# Application definition
-
-INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-]
-
-MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    #'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-]
-
 ROOT_URLCONF = 'urls'
-
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
-    },
-]
-
-# Database
-# https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-
-
-# Password validation
-# https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
-
-AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
-]
-
-
-# Internationalization
-# https://docs.djangoproject.com/en/2.2/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
 
-USE_I18N = True
+USE_I18N = False
 
 USE_L10N = True
 
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.2/howto/static-files/
-
-STATIC_URL = '/static/'
-
-MEDIA_ROOT = RUN_DIR #文件路径不是绝对路径是项目路径
-MEDIA_URL = '/public/'
-MEDIA_LIMIT_SIZE = 2*1024**3 #单位字节 三次方G
-
-MEDIA_SIZE=None
-
-LOGNAME = "server.log"
 #日志https://docs.djangoproject.com/zh-hans/2.1/topics/logging/
 LOGGING = {
     'version': 1,
@@ -137,14 +62,14 @@ LOGGING = {
         'file': {
             'level': 'INFO',
             'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR, LOGNAME),
+            'filename': os.path.join(RUN_DIR, LOGNAME),
             'encoding': 'utf-8',
             'formatter': 'standard',
         },
         'fileaccess': {
             'level': 'INFO',
             'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR, LOGNAME),
+            'filename': os.path.join(RUN_DIR, LOGNAME),
             'encoding': 'utf-8',
             'formatter': 'accessformatter',
         },
@@ -156,25 +81,11 @@ LOGGING = {
     'loggers': {
         'views': {
             'handlers': ['file', 'console'],
-            # 'handlers': ['file'],
             'level': 'INFO',
             'propagate': True,
         },
-        # '': {
-        #     'handlers': ['file', 'console'],
-        #     # 'handlers': ['file'],
-        #     'level': 'DEBUG',
-        #     'propagate': True,
-        # },
-        # 'django': {
-        #     'handlers': ['file', 'console'],
-        #     # 'handlers': ['file'],
-        #     'level': 'DEBUG',
-        #     'propagate': True,
-        # },
         'access': {
             'handlers': ['fileaccess', 'console'],
-            # 'handlers': ['file'],
             'level': 'DEBUG',
             'propagate': True,
         },
