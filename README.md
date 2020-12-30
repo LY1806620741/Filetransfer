@@ -6,10 +6,13 @@
 /public/ 上传文件列表接口
 还有个主页访问获取当前网卡ip
 
+## 安装
+```setup.py install```
+
 ## 运行
 ``` python
-pip install django
-python manage.py runserver 0.0.0.0:80
+python -m filetransfer.cli #默认运行
+python -m filetransfer.cli -h #帮助
 ```
 
 ## windows使用
