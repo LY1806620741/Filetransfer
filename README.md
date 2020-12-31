@@ -17,8 +17,8 @@
 
 ## 运行
 ``` python
-python -m filetransfer.cli #默认运行
-python -m filetransfer.cli -h #帮助
+python -m app.filetransfer #默认运行
+python -m app.filetransfer -h #帮助
 ```
 
 ## 卸载
