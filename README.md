@@ -9,15 +9,21 @@
 
 ## 安装
 ```shell
-[编译版本]setup.py install
-[测试版本]pip install -i https://test.pypi.org/simple/ Filetransfer
-[发行版本]pip install Filetransfer
+[编译版本]pip install .
+[测试版本]pip install -i https://test.pypi.org/simple/ FiletransferApp
+[发行版本]pip install FiletransferApp
+[不可用]setup.py install[原因：会安装为egg包,Django目前无法识别包文件]
 ```
 
 ## 运行
 ``` python
 python -m filetransfer.cli #默认运行
 python -m filetransfer.cli -h #帮助
+```
+
+## 卸载
+```
+pip uninstall filereansferapp
 ```
 
 ## windows使用
