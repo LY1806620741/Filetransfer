@@ -27,7 +27,7 @@ LOGNAME = "server.log"
 SECRET_KEY = 'w38djes5_ra2kjne0a7gt18867#ag!x#_3$&tnoswyglj5_@k%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
