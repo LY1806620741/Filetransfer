@@ -31,7 +31,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-ROOT_URLCONF = 'urls'
+ROOT_URLCONF = 'app.filetransfer.urls'
 
 LANGUAGE_CODE = 'en-us'
 
